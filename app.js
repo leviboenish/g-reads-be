@@ -9,8 +9,14 @@ const queries = require('./queries');
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req,res,next) => {
+app.get('/books', (req,res,next) => {
   queries.getAll().then((data) => {
+    res.json({data})
+  })
+})
+
+app.get('/books/:id', (req,res,next) => {
+  queries.getOne(req.params.id).then((data) => {
     res.json({data})
   })
 })
