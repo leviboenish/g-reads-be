@@ -2,8 +2,12 @@ const database = require('./database-connection');
 
 module.exports = {
 
-  getAll(){
+  getAllBooks(){
     return database('books');
+  },
+
+  getAllAuthors(){
+    return database('authors');
   },
 
   getOne(id){

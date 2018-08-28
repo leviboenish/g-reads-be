@@ -10,7 +10,13 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/books', (req,res,next) => {
-  queries.getAll().then((data) => {
+  queries.getAllBooks().then((data) => {
+    res.json({data})
+  })
+})
+
+app.get('/authors', (req,res,next) => {
+  queries.getAllAuthors().then((data) => {
     res.json({data})
   })
 })
